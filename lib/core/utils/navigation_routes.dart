@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_rafi/features/presentation/pages/forgot_password/forgot_password_view.dart';
 import 'package:project_rafi/features/presentation/pages/login/login_view.dart';
+import 'package:project_rafi/features/presentation/pages/sign_up/sign_up_view.dart';
 import 'package:project_rafi/features/presentation/pages/splash/splash_view.dart';
 
 class Routes{
   static const String SPLASH_PAGE = "splash_view";
   static const String LOGIN_PAGE = "login_view";
   static const String FORGOT_PASSWORD_RESET_PAGE = "forgot_password_reset_page";
+  static const String SIGN_UP_PAGE='sign_up_view';
 
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
@@ -25,6 +27,10 @@ class Routes{
         builder: (_) => ForgotPasswordCheckUserView(),
         settings: RouteSettings(name: Routes.FORGOT_PASSWORD_RESET_PAGE),
       );
+      case Routes.SIGN_UP_PAGE:
+        return MaterialPageRoute(builder: (_)=>SignUpView(),
+          settings: RouteSettings(name: Routes.SIGN_UP_PAGE),
+        );
 
       default:
         return MaterialPageRoute(
