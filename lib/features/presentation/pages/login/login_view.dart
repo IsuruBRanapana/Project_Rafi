@@ -105,6 +105,14 @@ class LoginView extends BaseView{
                         },
                         text: 'Login',
                       ),
+                      SizedBox(
+                        height: adaptiveScreen.setHeight(40),
+                      ),
+                      InkWell(onTap: (){
+                        Navigator.pushNamed(context, Routes.SIGN_UP_PAGE);
+                      },
+
+                          child: Text("You haven't account?PleaseSign Up",style: TextStyle(color: Colors.white),))
                     ],
                   ),
                 ),
