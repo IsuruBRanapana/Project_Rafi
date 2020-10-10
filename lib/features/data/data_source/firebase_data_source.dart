@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:project_rafi/features/data/models/request/login_request_model.dart';
 import 'package:project_rafi/features/data/models/request/sign_up_request_model.dart';
 
 abstract class FirebaseDataSource {
   Future<QuerySnapshot> getSignUp(SignUpRequestModel request);
+  Future<QuerySnapshot> getLogin(LoginRequestModel request);
 }
 
 class FirebaseDataSourceImpl extends FirebaseDataSource {
@@ -13,6 +15,9 @@ class FirebaseDataSourceImpl extends FirebaseDataSource {
   @override
   Future<QuerySnapshot> getSignUp(SignUpRequestModel request) =>
       _getSignUp(request);
+
+  @override
+  Future<QuerySnapshot> getLogin(LoginRequestModel request) => _getLogin(request);
 
   //------------------- implementation------------------------//
   Future<QuerySnapshot> _getSignUp(SignUpRequestModel request) async {
@@ -38,4 +43,19 @@ class FirebaseDataSourceImpl extends FirebaseDataSource {
       throw e;
     }
   }
+
+  Future<QuerySnapshot> _getLogin(LoginRequestModel request) async{
+    try {
+      UserCredential user = await _auth.signInWithEmailAndPassword(
+          email: request.email.trim(), password: request.password);
+      return _fireStore
+          .collection('Users')
+          .where('uid', isEqualTo: user.user.uid)
+          .get();
+    } on Exception catch (e) {
+      throw e;
+    }
+  }
+
+
 }
