@@ -10,7 +10,7 @@ class MyPainter extends CustomPainter {
 
     Path mainBackground = Path();
     mainBackground.addRect(Rect.fromLTRB(0, 0, width, height));
-    paint.color = AppColors.whiteColor;
+    paint.color = AppColors.primaryTextColor;
     canvas.drawPath(mainBackground, paint);
 
     // Path treeFirst =  Path();

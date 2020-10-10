@@ -59,7 +59,7 @@ class _SplashImageViewerState extends State<SplashImageViewer> {
                   opacity: 0.8,
                   child: Text("@ Powered By Isuru B. Ranapana",
                       style: TextStyle(
-                          color: AppColors.whiteColor,
+                          color: AppColors.primaryTextColor,
                           fontSize: AppConstants.adaptiveScreen.setSp(25))),
                 )),
             bottom: 0,
