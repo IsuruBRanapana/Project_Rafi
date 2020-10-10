@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_rafi/core/utils/app_colors.dart';
 import 'package:project_rafi/core/utils/app_costants.dart';
 import 'package:project_rafi/core/utils/app_images.dart';
+import 'package:project_rafi/core/utils/navigation_routes.dart';
 import 'package:project_rafi/features/presentation/pages/home/widgets/custom_card_view.dart';
 import 'package:project_rafi/features/presentation/pages/home/widgets/custom_drawer_tile.dart';
 
@@ -93,7 +94,10 @@ Padding(
   child:   Row(
     children: [
           CustomCardView(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.pushNamed(context, Routes.INJURY_TYPE);
+
+        },
         cardTitle: 'Injury Type',
       ),
       SizedBox(

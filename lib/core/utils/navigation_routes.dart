@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_rafi/features/presentation/pages/forgot_password/forgot_password_view.dart';
 import 'package:project_rafi/features/presentation/pages/home/home_view.dart';
+import 'package:project_rafi/features/presentation/pages/injury_type/injury_type_view.dart';
 import 'package:project_rafi/features/presentation/pages/login/login_view.dart';
 import 'package:project_rafi/features/presentation/pages/sign_up/sign_up_view.dart';
 import 'package:project_rafi/features/presentation/pages/splash/splash_view.dart';
@@ -12,6 +13,7 @@ class Routes{
   static const String FORGOT_PASSWORD_RESET_PAGE = "forgot_password_reset_page";
   static const String SIGN_UP_PAGE='sign_up_view';
   static const String HOME_PAGE='home_view';
+  static const String INJURY_TYPE='injury_type_view';
 
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
@@ -37,7 +39,10 @@ class Routes{
         return MaterialPageRoute(builder: (_)=>HomeView(),
           settings: RouteSettings(name: Routes.HOME_PAGE),
         );
-
+      case Routes.INJURY_TYPE:
+        return MaterialPageRoute(builder: (_)=>InjuryTypeView(),
+          settings: RouteSettings(name: Routes.INJURY_TYPE),
+        );
       default:
         return MaterialPageRoute(
           builder: (_)=>Scaffold(
