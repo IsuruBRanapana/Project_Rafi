@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:project_rafi/features/presentation/pages/forgot_password/forgot_password_view.dart';
 import 'package:project_rafi/features/presentation/pages/home/home_view.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/acute_injury/acute_injury.dart';
+import 'package:project_rafi/features/presentation/pages/injuries/baseball_injury_view/ankle_view.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/baseball_injury_view/baseball_injury.dart';
+import 'package:project_rafi/features/presentation/pages/injuries/baseball_injury_view/knee_view.dart';
+import 'package:project_rafi/features/presentation/pages/injuries/baseball_injury_view/lower_back_pain.dart';
+import 'package:project_rafi/features/presentation/pages/injuries/baseball_injury_view/neck_view.dart';
+import 'package:project_rafi/features/presentation/pages/injuries/baseball_injury_view/shoulder_view.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/overuse_injury/overuse_view.dart';
 import 'package:project_rafi/features/presentation/pages/injury_type/injury_type_view.dart';
 import 'package:project_rafi/features/presentation/pages/login/login_view.dart';
@@ -20,6 +25,11 @@ class Routes{
   static const String ACUTE_INJURY='acute_injury';
   static const String OVER_USE_INJURY='overuse_view';
   static const String BASEBALL_INJURY='baseball_injury';
+  static const String KNEE_VIEW='knee_view';
+  static const String SHOULDER_VIEW='shoulder_view';
+  static const String LOWER_BACK_PAIN='lower_back_pain';
+  static const String ANKLE_VIEW='ankle_view';
+  static const String NECK_VIEW='neck_view';
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
       case Routes.SPLASH_PAGE:
@@ -59,6 +69,27 @@ class Routes{
       case Routes.BASEBALL_INJURY:
         return MaterialPageRoute(builder: (_)=>BaseballInjuryView(),
           settings: RouteSettings(name: Routes.BASEBALL_INJURY),
+        );
+      case Routes.KNEE_VIEW:
+        return MaterialPageRoute(builder: (_)=>KneeView(),
+          settings: RouteSettings(name: Routes.KNEE_VIEW),
+        );
+      case Routes.ANKLE_VIEW:
+        return MaterialPageRoute(builder: (_)=>AnkleView(),
+          settings: RouteSettings(name: Routes.ANKLE_VIEW),
+        );
+      case Routes.LOWER_BACK_PAIN:
+        return MaterialPageRoute(builder: (_)=>LowerBackPain(),
+          settings: RouteSettings(name: Routes.LOWER_BACK_PAIN),
+        );
+      case Routes.SHOULDER_VIEW:
+        return MaterialPageRoute(builder: (_)=>ShoulderView(),
+          settings: RouteSettings(name: Routes.SHOULDER_VIEW),
+
+        );
+      case Routes.NECK_VIEW:
+        return MaterialPageRoute(builder: (_)=>NeckView(),
+          settings: RouteSettings(name: Routes.NECK_VIEW),
         );
       default:
         return MaterialPageRoute(
