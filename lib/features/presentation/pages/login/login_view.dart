@@ -101,7 +101,7 @@ class LoginView extends BaseView{
                       ),
                       RoundedCornerWhiteButton(
                         onTap: () {
-                         // Navigator.pushNamed(context, Router.EPIC_SURE_ASSESSOR_HOME_PAGE);
+                          Navigator.pushNamed(context, Routes.HOME_PAGE);
                         },
                         text: 'Login',
                       ),
