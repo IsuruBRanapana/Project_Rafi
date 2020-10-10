@@ -52,6 +52,9 @@ dependencies:
   google_sign_in: ^4.5.4
   #connection_checker
   data_connection_checker: ^0.3.4
+  #state management
+  flutter_bloc: ^6.0.6
+  get_it: ^4.0.4
 
 
 dev_dependencies:

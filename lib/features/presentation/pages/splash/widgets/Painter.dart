@@ -29,14 +29,14 @@ class MyPainter extends CustomPainter {
     firstOval.moveTo(0, height);
     firstOval.lineTo(0, height*2.8/4);
     firstOval.quadraticBezierTo(0.6*width, height*3/4, 3/4*width, height);
-    paint.color=AppColors.primaryTextColor;
+    paint.color=AppColors.primaryBackgroundColor;
     canvas.drawPath(firstOval, paint);
 
     Path secondOval =Path();
     secondOval.moveTo(1/4*width, height);
     secondOval.quadraticBezierTo(0.4*width, 3 /4*height, width,2.8/4*height);
     secondOval.lineTo(width, height);
-    paint.color=AppColors.primaryTextColor;
+    paint.color=AppColors.orangeColor;
     canvas.drawPath(secondOval, paint);
   }
 

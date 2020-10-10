@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project_rafi/core/utils/app_colors.dart';
 import 'package:project_rafi/core/utils/app_costants.dart';
@@ -33,7 +34,7 @@ class _ForgotPasswordCheckUserViewState
       body: Padding(
         padding:  EdgeInsets.only(top: AppConstants.adaptiveScreen.setWidth(150),bottom: AppConstants.adaptiveScreen.setWidth(30),right: AppConstants.adaptiveScreen.setWidth(30),left: AppConstants.adaptiveScreen.setWidth(30)),
         child: Container(
-          child: Column(
+          child: ListView(
             children: [
               Image.asset(AppImages.manInQuestion,width: AppConstants.adaptiveScreen.setWidth(250),
               height: AppConstants.adaptiveScreen.setHeight(250),),
@@ -83,8 +84,11 @@ class _ForgotPasswordCheckUserViewState
               ),
               RoundedCornerGradientButton(
                 text: 'Send',
-                onTap: (){
-
+                onTap: ()async {
+                  //TODO: temporary added not in proper way
+                  FirebaseAuth.instance
+                      .sendPasswordResetEmail(email: _emailController.text)
+                      .then((value) => print("check your mails"));
                 },
               )
             ],

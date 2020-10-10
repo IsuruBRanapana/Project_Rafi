@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:progress_dialog/progress_dialog.dart';
@@ -24,6 +25,7 @@ class _BaseViewState extends State<BaseView> {
 
     _buildProgressDialog(context);
     widget.adaptiveScreen = ScreenUtil();
+    Firebase.initializeApp();
 
     print('Height: ${ScreenUtil.defaultSize.height}');
     print('Width: ${ScreenUtil.defaultSize.width}');
