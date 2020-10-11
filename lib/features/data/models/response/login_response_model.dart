@@ -6,8 +6,9 @@ part 'login_response_model.g.dart';
 @JsonSerializable()
 class LoginResponseModel extends LoginResponse{
   final String uid;
+  final String userName;
 
-  LoginResponseModel({this.uid}):super(uid: uid);
+  LoginResponseModel({this.uid,this.userName, }):super(uid: uid,userName: userName);
 
   factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseModelFromJson(json);

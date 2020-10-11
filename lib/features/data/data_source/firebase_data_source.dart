@@ -2,10 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:project_rafi/features/data/models/request/login_request_model.dart';
 import 'package:project_rafi/features/data/models/request/sign_up_request_model.dart';
+import 'package:project_rafi/features/data/models/request/theropist_request_model.dart';
 
 abstract class FirebaseDataSource {
   Future<QuerySnapshot> getSignUp(SignUpRequestModel request);
   Future<QuerySnapshot> getLogin(LoginRequestModel request);
+  Future<QuerySnapshot> getThero(TheropistRequestModel request);
+
 }
 
 class FirebaseDataSourceImpl extends FirebaseDataSource {
@@ -18,6 +21,9 @@ class FirebaseDataSourceImpl extends FirebaseDataSource {
 
   @override
   Future<QuerySnapshot> getLogin(LoginRequestModel request) => _getLogin(request);
+
+  @override
+  Future<QuerySnapshot> getThero(TheropistRequestModel request) =>_getThero(request);
 
   //------------------- implementation------------------------//
   Future<QuerySnapshot> _getSignUp(SignUpRequestModel request) async {
@@ -58,6 +64,18 @@ class FirebaseDataSourceImpl extends FirebaseDataSource {
       throw e;
     }
   }
+
+  Future<QuerySnapshot> _getThero(TheropistRequestModel request) async{
+    try {
+      return _fireStore
+          .collection('Therapist')
+          .get();
+    } on Exception catch (e) {
+      print(e);
+      throw e;
+    }
+  }
+
 
 
 }

@@ -40,25 +40,79 @@ class _InjuryTypeViewState extends State<InjuryTypeView> {
             children: [
               InjuryTypeCard(
                 onPressed: (){
-                  Navigator.pushNamed(context, Routes.ACUTE_INJURY);
+                  Navigator.pushNamed(context, Routes.BONE);
                 },
-                cardTitle: 'Acute Injury',
+                cardTitle: 'Bone',
               ),
               SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
               InjuryTypeCard(
                 onPressed: (){
-                  Navigator.pushNamed(context, Routes.OVER_USE_INJURY);
+                  Navigator.pushNamed(context, Routes.JOINT);
                 },
-                cardTitle: 'Cronic/OverUse Injury',
+                cardTitle: 'Joint',
               ),
               SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
-
               InjuryTypeCard(
                 onPressed: (){
-                  Navigator.pushNamed(context, Routes.BASEBALL_INJURY);
+                  Navigator.pushNamed(context, Routes.LIGAMENT);
                 },
-                cardTitle: 'BaseBall Injury',
-              )
+                cardTitle: 'Ligament',
+              ),SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
+              InjuryTypeCard(
+                onPressed: (){
+                  Navigator.pushNamed(context, Routes.MUSCLE);
+                },
+                cardTitle: 'Muscle',
+              ),SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
+              InjuryTypeCard(
+                onPressed: (){
+                  Navigator.pushNamed(context, Routes.NECK);
+                },
+                cardTitle: 'Neck',
+              ),
+              SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
+              InjuryTypeCard(
+                onPressed: (){
+                  Navigator.pushNamed(context, Routes.SHOULDER);
+                },
+                cardTitle: 'Shoulder',
+              ),
+              SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
+              InjuryTypeCard(
+                onPressed: (){
+                  Navigator.pushNamed(context, Routes.LOWERBACKPAIN);
+                },
+                cardTitle: 'Lower Back Pain',
+              ),
+              SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
+              InjuryTypeCard(
+                onPressed: (){
+                  Navigator.pushNamed(context, Routes.KNEE);
+                },
+                cardTitle: 'Knee',
+              ),
+              SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
+              InjuryTypeCard(
+                onPressed: (){
+                  Navigator.pushNamed(context, Routes.ANKLE);
+                },
+                cardTitle: 'Ankle',
+              ),
+              SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
+              // InjuryTypeCard(
+              //   onPressed: (){
+              //     Navigator.pushNamed(context, Routes.OVER_USE_INJURY);
+              //   },
+              //   cardTitle: 'Cronic/OverUse Injury',
+              // ),
+              // SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
+              //
+              // InjuryTypeCard(
+              //   onPressed: (){
+              //     Navigator.pushNamed(context, Routes.BASEBALL_INJURY);
+              //   },
+              //   cardTitle: 'BaseBall Injury',
+              // )
             ],
           ),
         ),

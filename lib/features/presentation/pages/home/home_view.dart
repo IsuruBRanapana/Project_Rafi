@@ -7,6 +7,10 @@ import 'package:project_rafi/features/presentation/pages/home/widgets/custom_car
 import 'package:project_rafi/features/presentation/pages/home/widgets/custom_drawer_tile.dart';
 
 class HomeView extends StatefulWidget {
+  final String userName;
+
+  const HomeView({Key key, this.userName}) : super(key: key);
+
   @override
   _HomeViewState createState() => _HomeViewState();
 }
@@ -26,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Image.asset(AppImages.manInQuestion),
                         Text(
-                          'Hi Isuru',
+                          'Hi ${widget.userName}',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: AppConstants.adaptiveScreen.setSp(50),
@@ -45,11 +49,11 @@ class _HomeViewState extends State<HomeView> {
                   drawerTileTitle: 'Contact Us',
                   icon: Icons.phone,
                 ),
-                CustomDrawerListTile(
-                  pressedFunction: () {},
-                  icon: Icons.lock,
-                  drawerTileTitle: 'Change Password',
-                ),
+                // CustomDrawerListTile(
+                //   pressedFunction: () {},
+                //   icon: Icons.lock,
+                //   drawerTileTitle: 'Change Password',
+                // ),
                 CustomDrawerListTile(
                   pressedFunction: () {},
                   drawerTileTitle: 'Home',
@@ -89,38 +93,38 @@ class _HomeViewState extends State<HomeView> {
                   SizedBox(
                     height: AppConstants.adaptiveScreen.setWidth(50),
                   ),
-Padding(
-  padding:  EdgeInsets.only(right: AppConstants.adaptiveScreen.setWidth(20),left: AppConstants.adaptiveScreen.setWidth(20)),
-  child:   Row(
-    children: [
-          CustomCardView(
-        onPressed: (){
-          Navigator.pushNamed(context, Routes.INJURY_TYPE);
-
-        },
-        cardTitle: 'Injury Type',
-      ),
-      SizedBox(
-        width: AppConstants.adaptiveScreen.setWidth(30),
-      ),
-      CustomCardView(
-        onPressed: (){},
-        cardTitle: 'First Aid',
-      ),
-    ],
-  ),
-),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        right: AppConstants.adaptiveScreen.setWidth(20),
+                        left: AppConstants.adaptiveScreen.setWidth(20)),
+                    child: Row(
+                      children: [
+                        CustomCardView(
+                          onPressed: () {
+                            Navigator.pushNamed(context, Routes.INJURY_TYPE);
+                          },
+                          cardTitle: 'Injury Type',
+                        ),
+                        SizedBox(
+                          width: AppConstants.adaptiveScreen.setWidth(30),
+                        ),
+                        CustomCardView(
+                          onPressed: () {},
+                          cardTitle: 'First Aid',
+                        ),
+                      ],
+                    ),
+                  ),
                   SizedBox(
                     height: AppConstants.adaptiveScreen.setWidth(20),
                   ),
                   Center(
                     child: CustomCardView(
-                      onPressed: (){},
+                      onPressed: () {},
                       cardTitle: 'Therapist',
                     ),
                   ),
                 ],
-
               ),
             ),
           ),

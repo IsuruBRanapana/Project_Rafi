@@ -9,10 +9,12 @@ part of 'login_response_model.dart';
 LoginResponseModel _$LoginResponseModelFromJson(Map<String, dynamic> json) {
   return LoginResponseModel(
     uid: json['uid'] as String,
+    userName: json['userName'] as String,
   );
 }
 
 Map<String, dynamic> _$LoginResponseModelToJson(LoginResponseModel instance) =>
     <String, dynamic>{
       'uid': instance.uid,
+      'userName': instance.userName,
     };
