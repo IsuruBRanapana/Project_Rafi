@@ -25,6 +25,8 @@ class SignUpView extends BaseView {
   @override
   Widget buildView(context) {
     return Scaffold(
+    return  Scaffold(
+
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
       body: BlocProvider<SignUpBloc>(
@@ -85,6 +87,55 @@ class SignUpView extends BaseView {
                                     fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
                               ),
+      body:Form(
+        key: formkey,
+        child: ListView(
+          children:<Widget> [
+            Container(
+              decoration: BoxDecoration(
+                  gradient: AppColors.gradientBackground
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              Expanded(flex:1,child: SizedBox()),
+                              Expanded(flex:1,child: SizedBox()),
+                              Expanded(flex:1,child: SizedBox()),
+                              Expanded(flex:2,child: SizedBox()),
+                              Expanded(flex:1,child:Text('Login',textAlign: TextAlign.end,style: TextStyle(color:Colors.white),)),
+
+                              Expanded(
+                                flex:1,
+                                child: IconButton(
+
+                                  onPressed:(){},
+                                    icon:Icon(Icons.person,color: Colors.white,size: AppConstants.adaptiveScreen.setSp(60),) ,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Image(
+                              //todo:add the application logo
+                              image: AssetImage(AppImages.manInQuestion),
+                              fit: BoxFit.scaleDown,
+                              width: adaptiveScreen.setWidth(200),
+                              height: adaptiveScreen.setHeight(200),
+                            ),
+                          ),
+                          Text(
+                            'Sign',
+                            style: TextStyle(fontSize: adaptiveScreen.setSp(45), color: Colors.white, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
 
                               Padding(
                                 padding: EdgeInsets.all(
@@ -495,7 +546,6 @@ class SignUpView extends BaseView {
       ),
     );
   }
-
   String validateEmail(String value) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
