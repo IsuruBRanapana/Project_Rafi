@@ -5,6 +5,7 @@ import 'package:project_rafi/core/utils/app_costants.dart';
 import 'package:project_rafi/core/utils/app_images.dart';
 import 'package:project_rafi/core/utils/navigation_routes.dart';
 import 'package:project_rafi/features/presentation/pages/splash/widgets/Painter.dart';
+import 'package:project_rafi/features/presentation/pages/therapist/component/card.dart';
 
 class SplashImageViewer extends StatefulWidget {
   @override
@@ -51,7 +52,8 @@ class _SplashImageViewerState extends State<SplashImageViewer> {
                   child: Image.asset(AppImages.splashMan),
                   curve: Curves.slowMiddle,
                   onEnd: () {
-                    Navigator.pushReplacementNamed(context, Routes.LOGIN_PAGE);
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=>CustomTherapistView()));
+                    //Navigator.pushReplacementNamed(context, Routes.LOGIN_PAGE);
                   },
                 ),
               ),
