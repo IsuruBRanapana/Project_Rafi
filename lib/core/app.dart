@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Project Rafi',
       onGenerateRoute: Routes.generateRoute,
       initialRoute: Routes.SPLASH_PAGE,

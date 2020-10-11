@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:project_rafi/features/domain/entities/response/error_response.dart';
 
 abstract class Failure extends Equatable{
   Failure([List properties = const<dynamic>[]]);
@@ -7,7 +8,17 @@ abstract class Failure extends Equatable{
 }
 
 // General failures
-class ServerFailure extends Failure {}
+class ServerFailure extends Failure {
+  final ErrorResponse errorResponse;
+
+  ServerFailure(this.errorResponse);
+}
+
+class PlatformFailure extends Failure {
+  final String message;
+
+  PlatformFailure(this.message);
+}
 
 class CacheFailure extends Failure {}
 

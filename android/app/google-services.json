@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "173593331136",
+    "firebase_url": "https://project-rafi-df097.firebaseio.com",
+    "project_id": "project-rafi-df097",
+    "storage_bucket": "project-rafi-df097.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173593331136:android:786130fd1b477abd0c3425",
+        "android_client_info": {
+          "package_name": "com.example.project_rafi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173593331136-1utsfptbutjeb3obug4o0v7fr7d7g2t4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBewb0iIWmDkM4YeXATTx-G04fP3uEZaP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "173593331136-1utsfptbutjeb3obug4o0v7fr7d7g2t4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
