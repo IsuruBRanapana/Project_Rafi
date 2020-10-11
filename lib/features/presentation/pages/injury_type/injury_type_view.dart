@@ -39,6 +39,36 @@ class _InjuryTypeViewState extends State<InjuryTypeView> {
               children: [
                 InjuryTypeCard(
                   onPressed: () {
+                    Navigator.pushNamed(context, Routes.SHOULDER);
+                  },
+                  cardTitle: 'Shoulder',
+                  img: AppImages.sho,
+                ),
+                SizedBox(
+                  height: AppConstants.adaptiveScreen.setHeight(20),
+                ),
+                InjuryTypeCard(
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.NECK);
+                  },
+                  cardTitle: 'Neck',
+                  img: AppImages.neck,
+                ),
+                SizedBox(
+                  height: AppConstants.adaptiveScreen.setHeight(20),
+                ),
+                InjuryTypeCard(
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.LOWERBACKPAIN);
+                  },
+                  cardTitle: 'Lower Back Pain',
+                  img: AppImages.lbp,
+                ),
+                SizedBox(
+                  height: AppConstants.adaptiveScreen.setHeight(20),
+                ),
+                InjuryTypeCard(
+                  onPressed: () {
                     Navigator.pushNamed(context, Routes.BONE);
                   },
                   cardTitle: 'Bone',
@@ -73,36 +103,6 @@ class _InjuryTypeViewState extends State<InjuryTypeView> {
                   },
                   cardTitle: 'Muscle',
                   img: AppImages.muscle,
-                ),
-                SizedBox(
-                  height: AppConstants.adaptiveScreen.setHeight(20),
-                ),
-                InjuryTypeCard(
-                  onPressed: () {
-                    Navigator.pushNamed(context, Routes.NECK);
-                  },
-                  cardTitle: 'Neck',
-                  img: AppImages.neck,
-                ),
-                SizedBox(
-                  height: AppConstants.adaptiveScreen.setHeight(20),
-                ),
-                InjuryTypeCard(
-                  onPressed: () {
-                    Navigator.pushNamed(context, Routes.SHOULDER);
-                  },
-                  cardTitle: 'Shoulder',
-                  img: AppImages.sho,
-                ),
-                SizedBox(
-                  height: AppConstants.adaptiveScreen.setHeight(20),
-                ),
-                InjuryTypeCard(
-                  onPressed: () {
-                    Navigator.pushNamed(context, Routes.LOWERBACKPAIN);
-                  },
-                  cardTitle: 'Lower Back Pain',
-                  img: AppImages.lbp,
                 ),
                 SizedBox(
                   height: AppConstants.adaptiveScreen.setHeight(20),

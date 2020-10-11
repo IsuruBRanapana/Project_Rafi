@@ -16,4 +16,18 @@ class AppImages {
   static final String lbp=PNG_IMAGE_PATH+'lbp'+PNG_TYPE;
   static final String knee=PNG_IMAGE_PATH+'knee'+PNG_TYPE;
   static final String ankle=PNG_IMAGE_PATH+'ankle'+JPG_TYPE;
+  static final String one=PNG_IMAGE_PATH+'1'+JPG_TYPE;
+  static final String two=PNG_IMAGE_PATH+'2'+JPG_TYPE;
+  static final String three=PNG_IMAGE_PATH+'3'+JPG_TYPE;
+  static final String four=PNG_IMAGE_PATH+'4'+JPG_TYPE;
+  static final String five=PNG_IMAGE_PATH+'5'+JPG_TYPE;
+  static final String six=PNG_IMAGE_PATH+'6'+JPG_TYPE;
+  static final String seven=PNG_IMAGE_PATH+'7'+PNG_TYPE;
+  static final String eight=PNG_IMAGE_PATH+'8'+JPG_TYPE;
+  static final String nine=PNG_IMAGE_PATH+'9'+PNG_TYPE;
+  static final String a=PNG_IMAGE_PATH+'ab'+JPG_TYPE;
+  static final String b=PNG_IMAGE_PATH+'bb'+JPG_TYPE;
+  static final String c=PNG_IMAGE_PATH+'cb'+JPG_TYPE;
+  static final String d=PNG_IMAGE_PATH+'db'+JPG_TYPE;
+  static final String e=PNG_IMAGE_PATH+'eb'+JPG_TYPE;
 }

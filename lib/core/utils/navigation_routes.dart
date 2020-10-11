@@ -12,6 +12,7 @@ import 'package:project_rafi/features/presentation/pages/injuries/baseball_injur
 import 'package:project_rafi/features/presentation/pages/injuries/newUI/Bone.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/newUI/ankle.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/newUI/joint.dart';
+import 'package:project_rafi/features/presentation/pages/injuries/newUI/knee.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/newUI/ligament.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/newUI/lowerBackPain.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/newUI/muscle.dart';
@@ -19,6 +20,7 @@ import 'package:project_rafi/features/presentation/pages/injuries/newUI/neck.dar
 import 'package:project_rafi/features/presentation/pages/injuries/newUI/shoulder.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/overuse_injury/overuse_view.dart';
 import 'package:project_rafi/features/presentation/pages/injury_type/injury_type_view.dart';
+import 'package:project_rafi/features/presentation/pages/location/location.dart';
 import 'package:project_rafi/features/presentation/pages/login/login_view.dart';
 import 'package:project_rafi/features/presentation/pages/sign_up/sign_up_view.dart';
 import 'package:project_rafi/features/presentation/pages/splash/splash_view.dart';
@@ -48,7 +50,9 @@ class Routes{
   static const String MUSCLE='muscle';
   static const String NECK='neck';
   static const String SHOULDER='shoulder';
+  //static const String KNEE='knee';
   static const String THERO='view';
+  static const String LOCATION='location';
 
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
@@ -102,8 +106,16 @@ class Routes{
       //   return MaterialPageRoute(builder: (_)=>LowerBackPain(),
       //     settings: RouteSettings(name: Routes.LOWER_BACK_PAIN),
       //   );
+      case Routes.LOCATION:
+        return MaterialPageRoute(builder: (_)=>Location(),
+          settings: RouteSettings(name: Routes.ANKLE),
+        );
       case Routes.ANKLE:
         return MaterialPageRoute(builder: (_)=>AnkleView(),
+          settings: RouteSettings(name: Routes.ANKLE),
+        );
+      case Routes.KNEE:
+        return MaterialPageRoute(builder: (_)=>KneeView(),
           settings: RouteSettings(name: Routes.ANKLE),
         );
       case Routes.BONE:

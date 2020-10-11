@@ -72,10 +72,10 @@ class HomeView extends BaseView {
                         ),
                         decoration: BoxDecoration(
                             gradient: AppColors.gradientBackground)),
-                    CustomDrawerListTile(
-                        pressedFunction: () {},
-                        drawerTileTitle: 'About Us',
-                        icon: Icons.people_alt),
+                    // CustomDrawerListTile(
+                    //     pressedFunction: () {},
+                    //     drawerTileTitle: 'About Us',
+                    //     icon: Icons.people_alt),
                     CustomDrawerListTile(
                       pressedFunction: () {},
                       drawerTileTitle: 'Contact Us',
@@ -91,7 +91,9 @@ class HomeView extends BaseView {
                       drawerTileTitle: 'Sign Out',
                     ),
                     CustomDrawerListTile(
-                      pressedFunction: () {},
+                      pressedFunction: () {
+                        Navigator.pop(context);
+                      },
                       drawerTileTitle: 'Home',
                       icon: Icons.home,
                     )
@@ -147,9 +149,11 @@ class HomeView extends BaseView {
                               width: AppConstants.adaptiveScreen.setWidth(30),
                             ),
                             CustomCardView(
-                              onPressed: () {},
-                              cardTitle: 'First Aid',
-                              img: AppImages.firstAid,
+                              onPressed: () {
+                                Navigator.pushNamed(context, Routes.LOCATION);
+                              },
+                              cardTitle: 'Recommended Location',
+                              img: AppImages.nine,
                             ),
                           ],
                         ),
