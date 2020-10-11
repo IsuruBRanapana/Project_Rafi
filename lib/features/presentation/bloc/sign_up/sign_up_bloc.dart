@@ -57,6 +57,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
         return /*(failure as ServerFailure).errorResponse.message*/ "failure";
       case AuthorizedFailure:
         return 'Unauthorized User';
+      case PlatformFailure:
+        return "Error";
       default:
         return 'Unexpected error';
     }

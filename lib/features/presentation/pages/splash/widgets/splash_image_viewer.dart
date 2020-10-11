@@ -52,25 +52,13 @@ class _SplashImageViewerState extends State<SplashImageViewer> {
                   child: Image.asset(AppImages.splashMan),
                   curve: Curves.slowMiddle,
                   onEnd: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_)=>CustomTherapistView()));
-                    //Navigator.pushReplacementNamed(context, Routes.LOGIN_PAGE);
+                    // Navigator.push(context, MaterialPageRoute(builder: (_)=>CustomTherapistView()));
+                    Navigator.pushReplacementNamed(context, Routes.LOGIN_PAGE);
                   },
                 ),
               ),
             ],
           ),
-          // Positioned(
-          //   child: Center(
-          //       child: Opacity(
-          //         opacity: 0.8,
-          //         child: Text("@ Powered By Isuru B. Ranapana",
-          //             style: TextStyle(
-          //                 color: AppColors.primaryTextColor,
-          //                 fontSize: AppConstants.adaptiveScreen.setSp(25))),
-          //       )),
-          //   bottom: 0,
-          //   right: 0,
-          // )
         ],
       ),
     );

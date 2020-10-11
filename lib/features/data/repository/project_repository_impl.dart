@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/services.dart';
 import 'package:project_rafi/core/error/exceptions.dart';
 import 'package:project_rafi/core/error/failures.dart';
 import 'package:project_rafi/core/network/network_info.dart';
@@ -36,6 +37,8 @@ class ProjectRepositoryImpl extends ProjectRepository {
         return Right(signUpUser);
       } on ServerException catch (e) {
         return Left(ServerFailure(e.errorResponseModel));
+      } on PlatformException catch (e){
+        return Left(PlatformFailure(e.message));
       }
     } else {
       return Left(ConnectionFailure());
@@ -47,8 +50,13 @@ class ProjectRepositoryImpl extends ProjectRepository {
     LoginResponse user;
     //todo:handle platform exceptions
     if (await networkInfo.isConnected) {
+      var response;
       try {
-        var response = await firebaseDataSource.getLogin(request);
+        try {
+          response = await firebaseDataSource.getLogin(request);
+        }on PlatformException catch (e){
+          return Left(PlatformFailure(e.message));
+        }
         response.docs.forEach((element) {
           print("${element.data()["email"].toString()}");
           user = LoginResponse(
@@ -58,6 +66,8 @@ class ProjectRepositoryImpl extends ProjectRepository {
         return Right(user);
       } on ServerException catch (e) {
         return Left(ServerFailure(e.errorResponseModel));
+      }on PlatformException catch (e){
+        return Left(PlatformFailure(e.message));
       }
     } else {
       return Left(ConnectionFailure());
@@ -77,7 +87,9 @@ class ProjectRepositoryImpl extends ProjectRepository {
               email: element.data()["email"].toString(),
               name: element.data()["name"].toString(),
               mobile: element.data()["mobile"].toString(),
-              special: element.data()["email"].toString()));
+              special: element.data()["special"].toString(),
+            photoUrl: element.data()["photoUrl"].toString(),
+          ));
         });
         return Right(res);
       } on ServerException catch (e) {

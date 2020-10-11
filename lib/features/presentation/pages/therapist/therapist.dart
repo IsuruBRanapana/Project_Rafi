@@ -30,7 +30,7 @@ class _TherapistsState extends State<Therapists> {
         ),
       ),
       body: ListView.builder(itemBuilder: (context,index){
-        return CustomTherapistView();
+        return CustomTherapistView(response: widget.list[index],);
       },itemCount: widget.list.length,
       ),
     );

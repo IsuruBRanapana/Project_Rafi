@@ -6,8 +6,9 @@ import 'package:project_rafi/core/utils/app_images.dart';
 class InjuryTypeCard extends StatefulWidget {
   final Function onPressed;
   final String cardTitle;
+  final String img;
 
-  const InjuryTypeCard({Key key, this.onPressed, this.cardTitle}) : super(key: key);
+  const InjuryTypeCard({Key key, this.onPressed, this.cardTitle, this.img}) : super(key: key);
   @override
   _InjuryTypeCardState createState() => _InjuryTypeCardState();
 }
@@ -45,9 +46,9 @@ class _InjuryTypeCardState extends State<InjuryTypeCard> {
                       ),
                     ),
                   ),
-
-                  // Image.asset(AppImages.manInQuestion,width:AppConstants.adaptiveScreen.setWidth(150) ,
-                  //   height: AppConstants.adaptiveScreen.setWidth(150),)
+                  SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
+                  Image.asset(widget.img,width:AppConstants.adaptiveScreen.setWidth(150) ,
+                    height: AppConstants.adaptiveScreen.setWidth(150),)
                 ],
               ),
             )));

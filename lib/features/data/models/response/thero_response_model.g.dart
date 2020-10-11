@@ -12,6 +12,7 @@ TheroResponseModel _$TheroResponseModelFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     mobile: json['mobile'] as String,
     special: json['special'] as String,
+    photoUrl: json['photoUrl'] as String,
   );
 }
 
@@ -21,4 +22,5 @@ Map<String, dynamic> _$TheroResponseModelToJson(TheroResponseModel instance) =>
       'name': instance.name,
       'mobile': instance.mobile,
       'special': instance.special,
+      'photoUrl': instance.photoUrl,
     };

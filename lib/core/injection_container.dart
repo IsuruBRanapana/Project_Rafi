@@ -8,6 +8,7 @@ import 'package:project_rafi/features/data/repository/project_repository_impl.da
 import 'package:project_rafi/features/domain/repository/project_repository.dart';
 import 'package:project_rafi/features/domain/use_case/log_in_use_case.dart';
 import 'package:project_rafi/features/domain/use_case/sign_up_user_use_case.dart';
+import 'package:project_rafi/features/domain/use_case/thero_use_case.dart';
 import 'package:project_rafi/features/presentation/bloc/bloc.dart';
 
 import 'network/network_info.dart';
@@ -17,10 +18,12 @@ final sl = GetIt.instance;
 Future<void> init() async {
   sl.registerFactory(() => LoginBloc(getLogin: sl()));
   sl.registerFactory(() => SignUpBloc(getSignUp: sl()));
+  sl.registerFactory(() => TheroBloc(getThero: sl()));
 
   ///use cases
   sl.registerLazySingleton(() => LogInUseCase(sl()));
   sl.registerLazySingleton(() => SignUpUserUseCase(sl()));
+  sl.registerLazySingleton(() => TheroUseCase(sl()));
 
   ///repository
   sl.registerLazySingleton<ProjectRepository>(

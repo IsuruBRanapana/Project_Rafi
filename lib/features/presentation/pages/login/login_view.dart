@@ -32,7 +32,7 @@ class LoginView extends BaseView{
             cubit: _bloc,
             listener: (context,state)async{
               if (state is UserLoading) {
-                pr.show();
+                //pr.show();
               } else if (state is UserError) {
                 pr.hide();
                 _passwordController.clear();

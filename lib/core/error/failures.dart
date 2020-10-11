@@ -14,6 +14,12 @@ class ServerFailure extends Failure {
   ServerFailure(this.errorResponse);
 }
 
+class PlatformFailure extends Failure {
+  final String message;
+
+  PlatformFailure(this.message);
+}
+
 class CacheFailure extends Failure {}
 
 class ConnectionFailure extends Failure {}
