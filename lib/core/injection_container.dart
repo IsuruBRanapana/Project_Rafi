@@ -16,6 +16,7 @@ final sl = GetIt.instance;
 
 Future<void> init() async {
   sl.registerFactory(() => LoginBloc(getLogin: sl()));
+  sl.registerFactory(() => SignUpBloc(getSignUp: sl()));
 
   ///use cases
   sl.registerLazySingleton(() => LogInUseCase(sl()));

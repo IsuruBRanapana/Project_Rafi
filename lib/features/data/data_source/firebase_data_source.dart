@@ -40,6 +40,7 @@ class FirebaseDataSourceImpl extends FirebaseDataSource {
           .where('uid', isEqualTo: user.user.uid)
           .get();
     } on Exception catch (e) {
+      print(e);
       throw e;
     }
   }
