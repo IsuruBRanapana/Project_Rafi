@@ -30,4 +30,7 @@ class AppImages {
   static final String c=PNG_IMAGE_PATH+'cb'+JPG_TYPE;
   static final String d=PNG_IMAGE_PATH+'db'+JPG_TYPE;
   static final String e=PNG_IMAGE_PATH+'eb'+JPG_TYPE;
+  static final String ankle1=PNG_IMAGE_PATH+'ankle_1'+JPG_TYPE;
+  static final String ankle2=PNG_IMAGE_PATH+'ankel2'+PNG_TYPE;
+  static final String ankle3=PNG_IMAGE_PATH+'ankle3'+JPG_TYPE;
 }

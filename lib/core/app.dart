@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: Routes.generateRoute,
       initialRoute: Routes.SPLASH_PAGE,
       theme: ThemeData(
-          primaryColor: Colors.blue.shade800,
+          primaryColor: AppColors.primaryBackgroundColor,
           accentColor: Colors.blue.shade600,
           fontFamily: AppConstants.fontFamily,
           highlightColor: AppColors.primaryTextColor,
