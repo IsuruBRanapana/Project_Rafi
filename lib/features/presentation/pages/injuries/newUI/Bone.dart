@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_rafi/core/utils/app_colors.dart';
-import 'package:project_rafi/core/utils/app_costants.dart';
 import 'package:project_rafi/core/utils/app_images.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/newUI/widget/black_background_without_image.dart';
 import 'package:project_rafi/features/presentation/pages/injuries/newUI/widget/image_with_white_backgroup.dart';
