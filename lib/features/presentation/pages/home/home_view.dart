@@ -161,15 +161,30 @@ class HomeView extends BaseView {
                       SizedBox(
                         height: AppConstants.adaptiveScreen.setWidth(20),
                       ),
-                      Center(
-                        child: CustomCardView(
-                          onPressed: () {
-                            TheropistRequest req =
-                                TheropistRequest(userName: userName);
-                            _bloc.add(GetThero(request: req));
-                          },
-                          cardTitle: 'Therapist',
-                          img: AppImages.manInQuestion,
+                      Padding(
+                        padding: EdgeInsets.only(
+                            right: AppConstants.adaptiveScreen.setWidth(20),
+                            left: AppConstants.adaptiveScreen.setWidth(20)),
+                        child: Row(
+                          children: [
+                            CustomCardView(
+                              onPressed: () {
+                                TheropistRequest req =
+                                    TheropistRequest(userName: userName);
+                                _bloc.add(GetThero(request: req));
+                              },
+                              cardTitle: 'Therapist',
+                              img: AppImages.manInQuestion,
+                            ),
+                            SizedBox(
+                              width: AppConstants.adaptiveScreen.setWidth(30),
+                            ),
+                            CustomCardView(
+                              onPressed: () {},
+                              cardTitle: 'My Account',
+                              img: AppImages.profile,
+                            ),
+                          ],
                         ),
                       ),
                     ],
