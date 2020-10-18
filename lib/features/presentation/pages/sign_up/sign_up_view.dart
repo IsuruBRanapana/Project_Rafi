@@ -535,7 +535,9 @@ class SignUpView extends BaseView {
                                       injuryPeriod: _injuryPeriodController
                                           .text,
                                       email: _emailController.text,
-                                      password: _passwordController.text);
+                                      password: _passwordController.text,
+                                    imgUrl: ""
+                                  );
                                   _bloc.add(GetSignUp(request: request));
                                   // Navigator.pushNamed(context, Router.EPIC_SURE_ASSESSOR_HOME_PAGE);
                                 },

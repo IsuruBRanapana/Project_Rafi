@@ -40,6 +40,7 @@ class FirebaseDataSourceImpl extends FirebaseDataSource {
         'position': request.position,
         'injuryPeriod': request.injuryPeriod,
         'email': request.email,
+        'imgUrl':request.imgUrl,
       });
       return _fireStore
           .collection('Users')
