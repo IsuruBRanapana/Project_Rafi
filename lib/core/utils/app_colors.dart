@@ -7,5 +7,8 @@ class AppColors {
   static const Color orangeColor = Color(0xffec407a);
   static const Color peanutBrownColor = Color(0xFF795C24);
   static const Color blackColor = Color(0xFF000000);
-  static const LinearGradient gradientBackground=LinearGradient(begin: Alignment.topRight,end: Alignment.bottomLeft,colors: [AppColors.primaryBackgroundColor,AppColors.orangeColor]);
+  static const LinearGradient gradientBackground = LinearGradient(
+      begin: Alignment.topRight,
+      end: Alignment.bottomLeft,
+      colors: [AppColors.primaryBackgroundColor, AppColors.orangeColor]);
 }
