@@ -13,9 +13,11 @@ class SignUpRequestModel extends Equatable {
   final String injuryPeriod;
   final String email;
   final String password;
+  final String imgUrl;
 
   SignUpRequestModel(
       {this.userName,
+        this.imgUrl,
       this.age,
       this.weight,
       this.height,
@@ -27,7 +29,7 @@ class SignUpRequestModel extends Equatable {
 
   @override
   List<Object> get props =>
-      [userName, age, weight, position, injuryPeriod, email,password];
+      [userName, age, weight, position, injuryPeriod, email,password,imgUrl];
 
   factory SignUpRequestModel.fromJson(Map<String,dynamic> json)=>_$SignUpRequestModelFromJson(json);
   Map <String,dynamic> toJson()=>_$SignUpRequestModelToJson(this);

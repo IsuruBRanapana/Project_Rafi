@@ -39,4 +39,10 @@ class AppImages {
   static final String neck1=PNG_IMAGE_PATH+'neck1'+JPG_TYPE;
   static final String sh1=PNG_IMAGE_PATH+'sh1'+JPG_TYPE;
   static final String profile=PNG_IMAGE_PATH+'profile'+PNG_TYPE;
+  static final String swipper1=PNG_IMAGE_PATH+'swipper1'+JPG_TYPE;
+  static final String swipper2=PNG_IMAGE_PATH+'swipper2'+JPG_TYPE;
+  static final String swipper3=PNG_IMAGE_PATH+'swipper3'+JPG_TYPE;
+  static final String swipper4=PNG_IMAGE_PATH+'swipper4'+JPG_TYPE;
+  static final String therapist=PNG_IMAGE_PATH+'therapist'+PNG_TYPE;
+  static final String logo=PNG_IMAGE_PATH+'logo'+PNG_TYPE;
 }

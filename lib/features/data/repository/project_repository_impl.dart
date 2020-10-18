@@ -61,7 +61,13 @@ class ProjectRepositoryImpl extends ProjectRepository {
           print("${element.data()["email"].toString()}");
           user = LoginResponse(
               uid: element.data()['uid'].toString(),
-              userName: element.data()['userName'].toString());
+              userName: element.data()['userName'].toString(),
+            height: element.data()['height'].toString(),
+            weight: element.data()['weight'].toString(),
+            email: element.data()['email'].toString(),
+            imgUrl: element.data()['imgUrl'].toString(),
+            injuryPeriod: element.data()['injuryPeriod'].toString(),
+          );
         });
         return Right(user);
       } on ServerException catch (e) {

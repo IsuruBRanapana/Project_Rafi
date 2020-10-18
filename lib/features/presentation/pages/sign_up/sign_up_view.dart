@@ -134,7 +134,7 @@ class SignUpView extends BaseView {
                                 padding: const EdgeInsets.only(left: 20.0),
                                 child: Image(
                                   //todo:add the application logo
-                                  image: AssetImage(AppImages.manInQuestion),
+                                  image: AssetImage(AppImages.logo),
                                   fit: BoxFit.scaleDown,
                                   width: adaptiveScreen.setWidth(200),
                                   height: adaptiveScreen.setHeight(200),
@@ -535,7 +535,9 @@ class SignUpView extends BaseView {
                                       injuryPeriod: _injuryPeriodController
                                           .text,
                                       email: _emailController.text,
-                                      password: _passwordController.text);
+                                      password: _passwordController.text,
+                                    imgUrl: ""
+                                  );
                                   _bloc.add(GetSignUp(request: request));
                                   // Navigator.pushNamed(context, Router.EPIC_SURE_ASSESSOR_HOME_PAGE);
                                 },

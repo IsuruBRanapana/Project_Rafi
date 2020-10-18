@@ -23,8 +23,8 @@ class _CustomCardViewState extends State<CustomCardView> {
             child: Container(
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(15)),
-              width: AppConstants.adaptiveScreen.setWidth(300),
-              height: AppConstants.adaptiveScreen.setWidth(300),
+              width: AppConstants.adaptiveScreen.setWidth(250),
+              height: AppConstants.adaptiveScreen.setWidth(250),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -33,15 +33,15 @@ class _CustomCardViewState extends State<CustomCardView> {
                       widget.cardTitle,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: AppConstants.adaptiveScreen.setSp(34),
+                          fontSize: AppConstants.adaptiveScreen.setSp(26),
                           color: AppColors.primaryBackgroundColor,
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: AppConstants.adaptiveScreen.setWidth(20),
                     ),
-                    Image.asset(widget.img,width:AppConstants.adaptiveScreen.setWidth(150) ,
-                    height: AppConstants.adaptiveScreen.setWidth(150),)
+                    Image.asset(widget.img,width:AppConstants.adaptiveScreen.setWidth(100) ,
+                    height: AppConstants.adaptiveScreen.setWidth(100),)
                   ],
                 ),
               ),

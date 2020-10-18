@@ -56,6 +56,12 @@ dependencies:
   flutter_bloc: ^6.0.6
   get_it: ^4.0.4
   url_launcher: ^5.7.2
+  #swipper
+  flutter_swiper: ^1.1.6
+  #image_picker
+  image_picker: ^0.6.4
+  #firebase storage
+  firebase_storage: ^4.0.1
 
 dev_dependencies:
   flutter_test:
