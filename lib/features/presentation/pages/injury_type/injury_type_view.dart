@@ -39,10 +39,10 @@ class _InjuryTypeViewState extends State<InjuryTypeView> {
               children: [
                 InjuryTypeCard(
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.SHOULDER);
+                    Navigator.pushNamed(context, Routes.ANKLE);
                   },
-                  cardTitle: 'Shoulder',
-                  img: AppImages.sho,
+                  cardTitle: 'Ankle',
+                  img: AppImages.ankle,
                 ),
                 SizedBox(
                   height: AppConstants.adaptiveScreen.setHeight(20),
@@ -119,28 +119,14 @@ class _InjuryTypeViewState extends State<InjuryTypeView> {
                 ),
                 InjuryTypeCard(
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.ANKLE);
+                    Navigator.pushNamed(context, Routes.SHOULDER);
                   },
-                  cardTitle: 'Ankle',
-                  img: AppImages.ankle,
+                  cardTitle: 'Shoulder',
+                  img: AppImages.sho,
                 ),
                 SizedBox(
                   height: AppConstants.adaptiveScreen.setHeight(20),
                 ),
-                // InjuryTypeCard(
-                //   onPressed: (){
-                //     Navigator.pushNamed(context, Routes.OVER_USE_INJURY);
-                //   },
-                //   cardTitle: 'Cronic/OverUse Injury',
-                // ),
-                // SizedBox(height: AppConstants.adaptiveScreen.setHeight(20),),
-                //
-                // InjuryTypeCard(
-                //   onPressed: (){
-                //     Navigator.pushNamed(context, Routes.BASEBALL_INJURY);
-                //   },
-                //   cardTitle: 'BaseBall Injury',
-                // )
               ],
             ),
           ),

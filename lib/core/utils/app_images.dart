@@ -37,4 +37,5 @@ class AppImages {
   static final String knee2=PNG_IMAGE_PATH+'knee2'+JPG_TYPE;
   static final String lbp1=PNG_IMAGE_PATH+'lbp1'+PNG_TYPE;
   static final String neck1=PNG_IMAGE_PATH+'neck1'+JPG_TYPE;
+  static final String sh1=PNG_IMAGE_PATH+'sh1'+JPG_TYPE;
 }
