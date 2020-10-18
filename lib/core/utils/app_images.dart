@@ -30,4 +30,13 @@ class AppImages {
   static final String c=PNG_IMAGE_PATH+'cb'+JPG_TYPE;
   static final String d=PNG_IMAGE_PATH+'db'+JPG_TYPE;
   static final String e=PNG_IMAGE_PATH+'eb'+JPG_TYPE;
+  static final String ankle1=PNG_IMAGE_PATH+'ankle_1'+JPG_TYPE;
+  static final String ankle2=PNG_IMAGE_PATH+'ankel2'+PNG_TYPE;
+  static final String ankle3=PNG_IMAGE_PATH+'ankle3'+JPG_TYPE;
+  static final String knee1=PNG_IMAGE_PATH+'knee1'+JPG_TYPE;
+  static final String knee2=PNG_IMAGE_PATH+'knee2'+JPG_TYPE;
+  static final String lbp1=PNG_IMAGE_PATH+'lbp1'+PNG_TYPE;
+  static final String neck1=PNG_IMAGE_PATH+'neck1'+JPG_TYPE;
+  static final String sh1=PNG_IMAGE_PATH+'sh1'+JPG_TYPE;
+  static final String profile=PNG_IMAGE_PATH+'profile'+PNG_TYPE;
 }
