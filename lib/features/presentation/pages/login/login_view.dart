@@ -40,10 +40,11 @@ class LoginView extends BaseView{
 //                  showMessageDialog(context, message: state.message, title: 'Error');
                // Navigator.pushNamed(context, Router.EPIC_SURE_HOME_PAGE);
               } else if (state is UserLoaded) {
+                print(state.user);
                 pr.hide();
                 _passwordController.clear();
                 _usernameController.clear();
-    Navigator.pushNamed(context, Routes.HOME_PAGE,arguments: state.user.userName);
+    Navigator.pushNamed(context, Routes.HOME_PAGE,arguments: state.user);
                // Navigator.pushNamed(context, Router.EPIC_SURE_HOME_PAGE);
               } else {
                 pr.hide();
@@ -62,7 +63,7 @@ class LoginView extends BaseView{
                             padding: const EdgeInsets.only(left: 20.0),
                             child: Image(
                               //todo:add the application logo
-                              image: AssetImage(AppImages.manInQuestion),
+                              image: AssetImage(AppImages.logo),
                               fit: BoxFit.scaleDown,
                               width: adaptiveScreen.setWidth(350),
                               height: adaptiveScreen.setHeight(250),

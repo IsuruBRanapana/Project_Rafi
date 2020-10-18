@@ -7,14 +7,16 @@ import 'package:project_rafi/core/utils/app_costants.dart';
 import 'package:project_rafi/core/utils/app_images.dart';
 import 'package:project_rafi/core/utils/navigation_routes.dart';
 import 'package:project_rafi/features/domain/entities/request/theropist_request.dart';
+import 'package:project_rafi/features/domain/entities/response/login_response.dart';
 import 'package:project_rafi/features/presentation/bloc/bloc.dart';
 import 'package:project_rafi/features/presentation/pages/base_view.dart';
 import 'package:project_rafi/features/presentation/pages/home/widgets/custom_card_view.dart';
 import 'package:project_rafi/features/presentation/pages/home/widgets/custom_drawer_tile.dart';
+import 'package:project_rafi/features/presentation/pages/home/widgets/swipper_image.dart';
 import 'package:project_rafi/features/presentation/pages/therapist/therapist.dart';
 
 class HomeView extends BaseView {
-  final String userName;
+  final LoginResponse userName;
 
   HomeView({this.userName});
 
@@ -60,7 +62,7 @@ class HomeView extends BaseView {
                             Image.asset(AppImages.manInQuestion),
                             Expanded(
                               child: Text(
-                                'Hi ${userName}',
+                                'Hi ${userName.userName}',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize:
@@ -107,34 +109,56 @@ class HomeView extends BaseView {
                     top: AppConstants.adaptiveScreen.setWidth(50),
                     right: AppConstants.adaptiveScreen.setWidth(10)),
                 child: Container(
-                  child: Column(
+                  child: ListView(
                     children: [
+
                       Row(
                         children: [
-                          Icon(
-                            Icons.line_weight_sharp,
-                            color: Colors.white,
+                          Expanded(
+                            flex: 1,
+                            child: Icon(
+                              Icons.line_weight_sharp,
+                              color: Colors.white,
+                            ),
                           ),
+                          Expanded(
+                            child: Center(
+                              child: Text(
+                                "HOME",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: AppConstants.adaptiveScreen.setSp(30)),
+                              ),
+                            ),
+                            flex: 10,
+                          ),
+                          Expanded(
+                            child: SizedBox(),
+                            flex: 1,
+                          )
                         ],
                       ),
                       SizedBox(
                         height: AppConstants.adaptiveScreen.setWidth(20),
                       ),
-                      Center(
-                        child: Image.asset(
-                          //todo:copany name and the logo
-                          AppImages.manInQuestion,
-                          width: AppConstants.adaptiveScreen.setWidth(200),
-                          height: AppConstants.adaptiveScreen.setWidth(200),
-                        ),
-                      ),
-                      SizedBox(
-                        height: AppConstants.adaptiveScreen.setWidth(50),
-                      ),
+                      // Center(
+                      //   child: Image.asset(
+                      //     //todo:copany name and the logo
+                      //     AppImages.manInQuestion,
+                      //     width: AppConstants.adaptiveScreen.setWidth(200),
+                      //     height: AppConstants.adaptiveScreen.setWidth(200),
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: AppConstants.adaptiveScreen.setWidth(50),
+                      // ),
+                      Container(child: ImageSlider(),height: AppConstants.adaptiveScreen.setHeight(400),),
                       Padding(
                         padding: EdgeInsets.only(
-                            right: AppConstants.adaptiveScreen.setWidth(20),
-                            left: AppConstants.adaptiveScreen.setWidth(20)),
+                          top: AppConstants.adaptiveScreen.setHeight(30),
+                            right: AppConstants.adaptiveScreen.setWidth(70),
+                            left: AppConstants.adaptiveScreen.setWidth(80)),
                         child: Row(
                           children: [
                             CustomCardView(
@@ -163,24 +187,26 @@ class HomeView extends BaseView {
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                            right: AppConstants.adaptiveScreen.setWidth(20),
-                            left: AppConstants.adaptiveScreen.setWidth(20)),
+                            right: AppConstants.adaptiveScreen.setWidth(70),
+                            left: AppConstants.adaptiveScreen.setWidth(80)),
                         child: Row(
                           children: [
                             CustomCardView(
                               onPressed: () {
                                 TheropistRequest req =
-                                    TheropistRequest(userName: userName);
+                                    TheropistRequest(userName: userName.userName);
                                 _bloc.add(GetThero(request: req));
                               },
                               cardTitle: 'Therapist',
-                              img: AppImages.manInQuestion,
+                              img: AppImages.therapist,
                             ),
                             SizedBox(
                               width: AppConstants.adaptiveScreen.setWidth(30),
                             ),
                             CustomCardView(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, Routes.PROFILE,arguments: userName);
+                              },
                               cardTitle: 'My Account',
                               img: AppImages.profile,
                             ),

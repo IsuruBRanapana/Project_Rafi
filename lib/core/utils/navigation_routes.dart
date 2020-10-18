@@ -22,6 +22,8 @@ import 'package:project_rafi/features/presentation/pages/injuries/overuse_injury
 import 'package:project_rafi/features/presentation/pages/injury_type/injury_type_view.dart';
 import 'package:project_rafi/features/presentation/pages/location/location.dart';
 import 'package:project_rafi/features/presentation/pages/login/login_view.dart';
+import 'package:project_rafi/features/presentation/pages/profile/edit_profile.dart';
+import 'package:project_rafi/features/presentation/pages/profile/profile_page.dart';
 import 'package:project_rafi/features/presentation/pages/sign_up/sign_up_view.dart';
 import 'package:project_rafi/features/presentation/pages/splash/splash_view.dart';
 import 'package:project_rafi/features/presentation/pages/therapist/component/view.dart';
@@ -53,6 +55,8 @@ class Routes{
   //static const String KNEE='knee';
   static const String THERO='view';
   static const String LOCATION='location';
+  static const String EDIT_PROFILE='edit_profile';
+  static const String PROFILE='profile_page';
 
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
@@ -110,6 +114,12 @@ class Routes{
         return MaterialPageRoute(builder: (_)=>Location(),
           settings: RouteSettings(name: Routes.ANKLE),
         );
+      case Routes.EDIT_PROFILE:
+        return MaterialPageRoute(builder: (_)=>EditProfile(args: settings.arguments,),
+            settings: RouteSettings(name: Routes.EDIT_PROFILE));
+      case Routes.PROFILE:
+        return MaterialPageRoute(builder: (_)=>ProfileDetailView(response: settings.arguments,),
+            settings: RouteSettings(name: Routes.PROFILE));
       case Routes.ANKLE:
         return MaterialPageRoute(builder: (_)=>AnkleView(),
           settings: RouteSettings(name: Routes.ANKLE),

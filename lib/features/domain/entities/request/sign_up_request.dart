@@ -10,8 +10,10 @@ class SignUpRequest extends SignUpRequestModel {
   final String email;
   //TODO-encode base64
   final String password;
+  final String imgUrl;
 
   SignUpRequest({
+    this.imgUrl,
     this.userName,
     this.age,
     this.weight,
@@ -21,6 +23,7 @@ class SignUpRequest extends SignUpRequestModel {
     this.email,
     this.password,
   }) : super(
+    imgUrl: imgUrl,
             userName: userName,
             age: age,
             weight: weight,
