@@ -134,7 +134,7 @@ class SignUpView extends BaseView {
                                 padding: const EdgeInsets.only(left: 20.0),
                                 child: Image(
                                   //todo:add the application logo
-                                  image: AssetImage(AppImages.manInQuestion),
+                                  image: AssetImage(AppImages.logo),
                                   fit: BoxFit.scaleDown,
                                   width: adaptiveScreen.setWidth(200),
                                   height: adaptiveScreen.setHeight(200),
