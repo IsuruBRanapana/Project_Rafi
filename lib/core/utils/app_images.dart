@@ -45,4 +45,5 @@ class AppImages {
   static final String swipper4=PNG_IMAGE_PATH+'swipper4'+JPG_TYPE;
   static final String therapist=PNG_IMAGE_PATH+'therapist'+PNG_TYPE;
   static final String logo=PNG_IMAGE_PATH+'logo'+PNG_TYPE;
+  static final String marker=PNG_IMAGE_PATH+'marker'+PNG_TYPE;
 }

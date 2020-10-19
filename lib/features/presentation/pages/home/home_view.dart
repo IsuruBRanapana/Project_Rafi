@@ -174,7 +174,7 @@ class HomeView extends BaseView {
                             ),
                             CustomCardView(
                               onPressed: () {
-                                Navigator.pushNamed(context, Routes.LOCATION);
+                                Navigator.pushNamed(context, Routes.LOCATIONVIEW);
                               },
                               cardTitle: 'Recommended Location',
                               img: AppImages.nine,
