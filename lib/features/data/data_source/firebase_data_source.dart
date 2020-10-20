@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:project_rafi/features/data/models/request/login_request_model.dart';
+import 'package:project_rafi/features/data/models/request/profile_data_request_model.dart';
 import 'package:project_rafi/features/data/models/request/sign_up_request_model.dart';
 import 'package:project_rafi/features/data/models/request/theropist_request_model.dart';
 
@@ -8,6 +9,7 @@ abstract class FirebaseDataSource {
   Future<QuerySnapshot> getSignUp(SignUpRequestModel request);
   Future<QuerySnapshot> getLogin(LoginRequestModel request);
   Future<QuerySnapshot> getThero(TheropistRequestModel request);
+  Future<QuerySnapshot> getData(DataRequest request);
 
 }
 
@@ -25,6 +27,9 @@ class FirebaseDataSourceImpl extends FirebaseDataSource {
   @override
   Future<QuerySnapshot> getThero(TheropistRequestModel request) =>_getThero(request);
 
+
+  @override
+  Future<QuerySnapshot> getData(DataRequest request) =>_getData(request);
   //------------------- implementation------------------------//
   Future<QuerySnapshot> _getSignUp(SignUpRequestModel request) async {
     try {
@@ -76,6 +81,19 @@ class FirebaseDataSourceImpl extends FirebaseDataSource {
       throw e;
     }
   }
+
+  Future<QuerySnapshot> _getData(DataRequest request) {
+    try {
+      return _fireStore
+          .collection('Users')
+          .where('uid', isEqualTo: request.uid)
+          .get();
+    } on Exception catch (e) {
+      print(e);
+      throw e;
+    }
+  }
+
 
 
 

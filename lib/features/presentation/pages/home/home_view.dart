@@ -6,6 +6,7 @@ import 'package:project_rafi/core/utils/app_colors.dart';
 import 'package:project_rafi/core/utils/app_costants.dart';
 import 'package:project_rafi/core/utils/app_images.dart';
 import 'package:project_rafi/core/utils/navigation_routes.dart';
+import 'package:project_rafi/features/domain/entities/request/data_request.dart';
 import 'package:project_rafi/features/domain/entities/request/theropist_request.dart';
 import 'package:project_rafi/features/domain/entities/response/login_response.dart';
 import 'package:project_rafi/features/presentation/bloc/bloc.dart';
@@ -21,6 +22,7 @@ class HomeView extends BaseView {
   HomeView({this.userName});
 
   final _bloc = sl<TheroBloc>();
+  final _dataBloc = sl<GetDataBloc>();
 
   @override
   Widget buildView(BuildContext context) {
@@ -203,12 +205,41 @@ class HomeView extends BaseView {
                             SizedBox(
                               width: AppConstants.adaptiveScreen.setWidth(30),
                             ),
-                            CustomCardView(
-                              onPressed: () {
-                                Navigator.pushNamed(context, Routes.PROFILE,arguments: userName);
-                              },
-                              cardTitle: 'My Account',
-                              img: AppImages.profile,
+                            BlocProvider<GetDataBloc>(
+                              create: (_)=>_dataBloc,
+                              child: BlocListener<GetDataBloc,DataState>(
+                                cubit: _dataBloc,
+                                listener: (context, state){
+                                  if (state is DataLoading) {
+                                    print("loading");
+                                  } else if (state is TheroError) {
+                                    pr.hide();
+
+//                  showMessageDialog(context, message: state.message, title: 'Error');
+                                    // Navigator.pushNamed(context, Router.EPIC_SURE_HOME_PAGE);
+                                  } else if (state is DataLoaded) {
+                                    pr.hide();
+                                    Navigator.pushNamed(context, Routes.PROFILE,arguments: state.user);
+//                                    Navigator.push(
+//                                        context,
+//                                        MaterialPageRoute(
+//                                            builder: (_) => Therapists(
+//                                              list: state.response,
+//                                            )));
+//                                    // Navigator.pushNamed(context, Router.EPIC_SURE_HOME_PAGE);
+                                  } else {
+                                    pr.hide();
+                                  }
+                                },
+                                child: CustomCardView(
+                                  onPressed: () {
+                                    final req= DataRequestEntity(uid: userName.uid);
+                                    _dataBloc.add(GetData(loginRequest: req));
+                                  },
+                                  cardTitle: 'My Account',
+                                  img: AppImages.profile,
+                                ),
+                              ),
                             ),
                           ],
                         ),

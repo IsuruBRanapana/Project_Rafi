@@ -6,6 +6,7 @@ import 'package:project_rafi/core/utils/input_validator.dart';
 import 'package:project_rafi/features/data/data_source/firebase_data_source.dart';
 import 'package:project_rafi/features/data/repository/project_repository_impl.dart';
 import 'package:project_rafi/features/domain/repository/project_repository.dart';
+import 'package:project_rafi/features/domain/use_case/data_request_use_case.dart';
 import 'package:project_rafi/features/domain/use_case/log_in_use_case.dart';
 import 'package:project_rafi/features/domain/use_case/sign_up_user_use_case.dart';
 import 'package:project_rafi/features/domain/use_case/thero_use_case.dart';
@@ -19,11 +20,13 @@ Future<void> init() async {
   sl.registerFactory(() => LoginBloc(getLogin: sl()));
   sl.registerFactory(() => SignUpBloc(getSignUp: sl()));
   sl.registerFactory(() => TheroBloc(getThero: sl()));
+  sl.registerFactory(() => GetDataBloc(getLogin: sl()));
 
   ///use cases
   sl.registerLazySingleton(() => LogInUseCase(sl()));
   sl.registerLazySingleton(() => SignUpUserUseCase(sl()));
   sl.registerLazySingleton(() => TheroUseCase(sl()));
+  sl.registerLazySingleton(() => DataUseCase(sl()));
 
   ///repository
   sl.registerLazySingleton<ProjectRepository>(

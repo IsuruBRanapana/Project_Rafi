@@ -4,6 +4,7 @@ import 'package:project_rafi/core/error/exceptions.dart';
 import 'package:project_rafi/core/error/failures.dart';
 import 'package:project_rafi/core/network/network_info.dart';
 import 'package:project_rafi/features/data/data_source/firebase_data_source.dart';
+import 'package:project_rafi/features/domain/entities/request/data_request.dart';
 import 'package:project_rafi/features/domain/entities/request/login_request.dart';
 import 'package:project_rafi/features/domain/entities/request/sign_up_request.dart';
 import 'package:project_rafi/features/domain/entities/request/theropist_request.dart';
@@ -100,6 +101,40 @@ class ProjectRepositoryImpl extends ProjectRepository {
         return Right(res);
       } on ServerException catch (e) {
         return Left(ServerFailure(e.errorResponseModel));
+      }
+    } else {
+      return Left(ConnectionFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, LoginResponse>> getData(DataRequestEntity request) async{
+    LoginResponse user;
+    if (await networkInfo.isConnected) {
+      var response;
+      try {
+        try {
+          response = await firebaseDataSource.getData(request);
+        }on PlatformException catch (e){
+          return Left(PlatformFailure(e.message));
+        }
+        response.docs.forEach((element) {
+          print("${element.data()["email"].toString()}");
+          user = LoginResponse(
+            uid: element.data()['uid'].toString(),
+            userName: element.data()['userName'].toString(),
+            height: element.data()['height'].toString(),
+            weight: element.data()['weight'].toString(),
+            email: element.data()['email'].toString(),
+            imgUrl: element.data()['imgUrl'].toString(),
+            injuryPeriod: element.data()['injuryPeriod'].toString(),
+          );
+        });
+        return Right(user);
+      } on ServerException catch (e) {
+        return Left(ServerFailure(e.errorResponseModel));
+      }on PlatformException catch (e){
+        return Left(PlatformFailure(e.message));
       }
     } else {
       return Left(ConnectionFailure());

@@ -360,7 +360,7 @@ class _EditProfileState extends State<EditProfile> {
                                 'weight': upWeight,
                                 'height': upHeight,
                                 'injuryPeriod': upInjuryPeriod,
-                                'imgUrl':upImg,
+                                'imgUrl':img,
                               }, widget.args.uid);
                               // _firstNameController.text.isEmpty
                               //     ? upEmail = email
@@ -378,6 +378,7 @@ class _EditProfileState extends State<EditProfile> {
                               //   'lastName': upLastName,
                               //   'photoURL': upImg
                               // });
+                              Navigator.pop(context);
                               Navigator.pop(context);
                             },
                             text: 'Submit',
