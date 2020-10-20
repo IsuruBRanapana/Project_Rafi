@@ -58,7 +58,7 @@ class Routes{
   static const String LOCATION='location';
   static const String EDIT_PROFILE='edit_profile';
   static const String PROFILE='profile_page';
-  static const String LOCATIONVIEW='location_map';
+//  static const String LOCATIONVIEW='location_map';
 
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
@@ -88,10 +88,10 @@ class Routes{
         return MaterialPageRoute(builder: (_)=>InjuryTypeView(),
           settings: RouteSettings(name: Routes.INJURY_TYPE),
         );
-      case Routes.LOCATIONVIEW:
-        return MaterialPageRoute(builder: (_)=>LocationView(),
-          settings: RouteSettings(name: Routes.LOCATIONVIEW),
-        );
+//      case Routes.LOCATIONVIEW:
+//        return MaterialPageRoute(builder: (_)=>LocationView(),
+//          settings: RouteSettings(name: Routes.LOCATIONVIEW),
+//        );
       case Routes.ACUTE_INJURY:
         return MaterialPageRoute(builder: (_)=>AcuteInjuryView(),
           settings: RouteSettings(name: Routes.ACUTE_INJURY),

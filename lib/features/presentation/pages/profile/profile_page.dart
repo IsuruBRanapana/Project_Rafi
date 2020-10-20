@@ -56,7 +56,7 @@ class _ProfileDetailViewState extends State<ProfileDetailView> {
                     Center(
                       child: Container(
                         child: CircleAvatar(
-                          backgroundImage: widget.response.imgUrl.isEmpty?AssetImage(AppImages.profile):NetworkImage(widget.response.imgUrl),
+                          backgroundImage: widget.response.imgUrl.isEmpty||widget.response.imgUrl=="null"?AssetImage(AppImages.profile):NetworkImage(widget.response.imgUrl),
                           radius: 88,
                         ),
                       ),

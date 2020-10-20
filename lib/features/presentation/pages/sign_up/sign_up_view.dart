@@ -1,3 +1,4 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,6 +38,34 @@ class SignUpView extends BaseView {
               pr.show();
             } else if (state is SignUpError) {
               pr.hide();
+              if (state.message == "Password should be at least 6 characters") {
+                CoolAlert.show(
+                    barrierDismissible: false,
+                    context: context,
+                    type: CoolAlertType.warning,
+                    title: "Weak Password",
+                    text: state.message,
+                    confirmBtnText: "   Retry   ",
+                    confirmBtnColor: AppColors.orangeColor,
+                    onConfirmBtnTap: () {
+                      Navigator.pop(context);
+                    });
+              } else {
+                CoolAlert.show(
+                    barrierDismissible: false,
+                    context: context,
+                    type: CoolAlertType.error,
+                    title: "Oops...",
+                    text: state.message,
+                    confirmBtnText: "   Ok   ",
+                    confirmBtnColor: AppColors.orangeColor,
+                    onConfirmBtnTap: () {
+                      Navigator.pop(context);
+                      Navigator.pushReplacementNamed(
+                          context, Routes.LOGIN_PAGE);
+                    });
+              }
+
               // _passwordController.clear();
               // _usernameController.clear();
 //                  showMessageDialog(context, message: state.message, title: 'Error');
@@ -92,9 +121,8 @@ class SignUpView extends BaseView {
             child: ListView(
               children: <Widget>[
                 Container(
-                  decoration: BoxDecoration(
-                      gradient: AppColors.gradientBackground
-                  ),
+                  decoration:
+                      BoxDecoration(gradient: AppColors.gradientBackground),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 20.0),
                     child: Column(
@@ -109,23 +137,26 @@ class SignUpView extends BaseView {
                                   Expanded(flex: 1, child: SizedBox()),
                                   Expanded(flex: 1, child: SizedBox()),
                                   Expanded(flex: 2, child: SizedBox()),
-                                  Expanded(flex: 1,
+                                  Expanded(
+                                      flex: 1,
                                       child: Text(
-                                        'Login', textAlign: TextAlign.end,
-                                        style: TextStyle(
-                                            color: Colors.white),)),
-
+                                        'Login',
+                                        textAlign: TextAlign.end,
+                                        style: TextStyle(color: Colors.white),
+                                      )),
                                   Expanded(
                                     flex: 1,
                                     child: IconButton(
-
                                       onPressed: () {
-                                        Navigator.pushNamed(context, Routes.LOGIN_PAGE);
+                                        Navigator.pushNamed(
+                                            context, Routes.LOGIN_PAGE);
                                       },
                                       icon: Icon(
-                                        Icons.person, color: Colors.white,
-                                        size: AppConstants.adaptiveScreen.setSp(
-                                            60),),
+                                        Icons.person,
+                                        color: Colors.white,
+                                        size: AppConstants.adaptiveScreen
+                                            .setSp(60),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -148,7 +179,6 @@ class SignUpView extends BaseView {
                                     fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
                               ),
-
                               Padding(
                                 padding: EdgeInsets.all(
                                     AppConstants.adaptiveScreen.setWidth(50)),
@@ -167,25 +197,26 @@ class SignUpView extends BaseView {
                                       textInputAction: TextInputAction.done,
                                       cursorColor: Colors.white,
                                       decoration: InputDecoration(
-                                          errorStyle:
-                                          TextStyle(
+                                          errorStyle: TextStyle(
                                               color: AppColors.orangeColor),
                                           enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
                                           hintText: 'Isuru',
                                           counter: Offstage(),
-                                          labelText: 'Name',
+                                          labelText: 'Name *',
                                           labelStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(30),
+                                                  .adaptiveScreen
+                                                  .setSp(30),
                                               color: Colors.white),
                                           focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
                                           hintStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(28),
+                                                  .adaptiveScreen
+                                                  .setSp(28),
                                               color: Colors.grey),
                                           border: UnderlineInputBorder(
                                               borderSide: BorderSide(
@@ -210,29 +241,30 @@ class SignUpView extends BaseView {
                                       controller: _ageController,
                                       maxLength: 30,
                                       maxLengthEnforced: false,
+                                      keyboardType: TextInputType.number,
                                       textInputAction: TextInputAction.done,
                                       cursorColor: Colors.white,
                                       decoration: InputDecoration(
-                                          errorStyle:
-                                          TextStyle(
+                                          errorStyle: TextStyle(
                                               color: AppColors.orangeColor),
-
                                           enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
                                           hintText: '25',
                                           counter: Offstage(),
-                                          labelText: 'Age',
+                                          labelText: 'Age *',
                                           labelStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(30),
+                                                  .adaptiveScreen
+                                                  .setSp(30),
                                               color: Colors.white),
                                           focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
                                           hintStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(28),
+                                                  .adaptiveScreen
+                                                  .setSp(28),
                                               color: Colors.grey),
                                           border: UnderlineInputBorder(
                                               borderSide: BorderSide(
@@ -256,22 +288,23 @@ class SignUpView extends BaseView {
                                       },
                                       controller: _heightController,
                                       maxLength: 30,
+                                      keyboardType: TextInputType.number,
                                       maxLengthEnforced: false,
                                       textInputAction: TextInputAction.done,
                                       cursorColor: Colors.white,
                                       decoration: InputDecoration(
-                                          errorStyle:
-                                          TextStyle(
+                                          errorStyle: TextStyle(
                                               color: AppColors.orangeColor),
-
                                           enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
-                                          hintText: '168.0(Please Enter in Centimeter)',
-                                          labelText: 'Height',
+                                          hintText:
+                                              '168.0(Please Enter in Centimeter)',
+                                          labelText: 'Height *',
                                           labelStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(30),
+                                                  .adaptiveScreen
+                                                  .setSp(30),
                                               color: Colors.white),
                                           counter: Offstage(),
                                           focusedBorder: UnderlineInputBorder(
@@ -279,7 +312,8 @@ class SignUpView extends BaseView {
                                                   color: Colors.white)),
                                           hintStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(28),
+                                                  .adaptiveScreen
+                                                  .setSp(28),
                                               color: Colors.grey),
                                           border: UnderlineInputBorder(
                                               borderSide: BorderSide(
@@ -290,7 +324,6 @@ class SignUpView extends BaseView {
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
                                     ),
-
                                     SizedBox(
                                       height: AppConstants.adaptiveScreen
                                           .setHeight(50),
@@ -304,22 +337,23 @@ class SignUpView extends BaseView {
                                       },
                                       controller: _weightController,
                                       maxLength: 30,
+                                      keyboardType: TextInputType.number,
                                       maxLengthEnforced: false,
                                       textInputAction: TextInputAction.done,
                                       cursorColor: Colors.white,
                                       decoration: InputDecoration(
-                                          errorStyle:
-                                          TextStyle(
+                                          errorStyle: TextStyle(
                                               color: AppColors.orangeColor),
-
                                           enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
-                                          hintText: '65(Please Enter in Kilogram)',
-                                          labelText: 'Weight',
+                                          hintText:
+                                              '65(Please Enter in Kilogram)',
+                                          labelText: 'Weight *',
                                           labelStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(30),
+                                                  .adaptiveScreen
+                                                  .setSp(30),
                                               color: Colors.white),
                                           counter: Offstage(),
                                           focusedBorder: UnderlineInputBorder(
@@ -327,7 +361,8 @@ class SignUpView extends BaseView {
                                                   color: Colors.white)),
                                           hintStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(28),
+                                                  .adaptiveScreen
+                                                  .setSp(28),
                                               color: Colors.grey),
                                           border: UnderlineInputBorder(
                                               borderSide: BorderSide(
@@ -338,7 +373,6 @@ class SignUpView extends BaseView {
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
                                     ),
-
                                     SizedBox(
                                       height: AppConstants.adaptiveScreen
                                           .setHeight(50),
@@ -356,10 +390,8 @@ class SignUpView extends BaseView {
                                       textInputAction: TextInputAction.done,
                                       cursorColor: Colors.white,
                                       decoration: InputDecoration(
-                                          errorStyle:
-                                          TextStyle(
+                                          errorStyle: TextStyle(
                                               color: AppColors.orangeColor),
-
                                           enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
@@ -367,16 +399,17 @@ class SignUpView extends BaseView {
                                           labelText: 'Position',
                                           labelStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(30),
+                                                  .adaptiveScreen
+                                                  .setSp(30),
                                               color: Colors.white),
-
                                           counter: Offstage(),
                                           focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
                                           hintStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(28),
+                                                  .adaptiveScreen
+                                                  .setSp(28),
                                               color: Colors.grey),
                                           border: UnderlineInputBorder(
                                               borderSide: BorderSide(
@@ -387,7 +420,6 @@ class SignUpView extends BaseView {
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
                                     ),
-
                                     SizedBox(
                                       height: AppConstants.adaptiveScreen
                                           .setHeight(50),
@@ -404,17 +436,17 @@ class SignUpView extends BaseView {
                                       maxLengthEnforced: false,
                                       textInputAction: TextInputAction.done,
                                       cursorColor: Colors.white,
-                                      decoration: InputDecoration(errorStyle:
-                                      TextStyle(color: AppColors.orangeColor),
-
-
+                                      decoration: InputDecoration(
+                                          errorStyle: TextStyle(
+                                              color: AppColors.orangeColor),
                                           enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
                                           hintText: 'Three months',
                                           labelStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(30),
+                                                  .adaptiveScreen
+                                                  .setSp(30),
                                               color: Colors.white),
                                           labelText: 'Injury Period',
                                           counter: Offstage(),
@@ -423,7 +455,8 @@ class SignUpView extends BaseView {
                                                   color: Colors.white)),
                                           hintStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(28),
+                                                  .adaptiveScreen
+                                                  .setSp(28),
                                               color: Colors.grey),
                                           border: UnderlineInputBorder(
                                               borderSide: BorderSide(
@@ -437,7 +470,6 @@ class SignUpView extends BaseView {
                                     SizedBox(
                                       height: adaptiveScreen.setHeight(60),
                                     ),
-
                                     TextFormField(
                                       validator: validateEmail,
                                       controller: _emailController,
@@ -445,19 +477,19 @@ class SignUpView extends BaseView {
                                       maxLengthEnforced: false,
                                       textInputAction: TextInputAction.done,
                                       cursorColor: Colors.white,
+                                      keyboardType: TextInputType.emailAddress,
                                       decoration: InputDecoration(
-                                          errorStyle:
-                                          TextStyle(
+                                          errorStyle: TextStyle(
                                               color: AppColors.orangeColor),
-
                                           enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
                                           hintText: 'isururanapana@gmail.com',
-                                          labelText: 'Email',
+                                          labelText: 'Email *',
                                           labelStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(30),
+                                                  .adaptiveScreen
+                                                  .setSp(30),
                                               color: Colors.white),
                                           counter: Offstage(),
                                           focusedBorder: UnderlineInputBorder(
@@ -465,7 +497,8 @@ class SignUpView extends BaseView {
                                                   color: Colors.white)),
                                           hintStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(28),
+                                                  .adaptiveScreen
+                                                  .setSp(28),
                                               color: Colors.grey),
                                           border: UnderlineInputBorder(
                                               borderSide: BorderSide(
@@ -487,18 +520,17 @@ class SignUpView extends BaseView {
                                       textInputAction: TextInputAction.done,
                                       cursorColor: Colors.white,
                                       decoration: InputDecoration(
-                                          errorStyle:
-                                          TextStyle(
+                                          errorStyle: TextStyle(
                                               color: AppColors.orangeColor),
-
                                           enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Colors.white)),
                                           hintText: 'Password',
-                                          labelText: 'Password',
+                                          labelText: 'Password *',
                                           labelStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(30),
+                                                  .adaptiveScreen
+                                                  .setSp(30),
                                               color: Colors.white),
                                           counter: Offstage(),
                                           focusedBorder: UnderlineInputBorder(
@@ -506,7 +538,8 @@ class SignUpView extends BaseView {
                                                   color: Colors.white)),
                                           hintStyle: TextStyle(
                                               fontSize: AppConstants
-                                                  .adaptiveScreen.setSp(28),
+                                                  .adaptiveScreen
+                                                  .setSp(28),
                                               color: Colors.grey),
                                           border: UnderlineInputBorder(
                                               borderSide: BorderSide(
@@ -517,7 +550,6 @@ class SignUpView extends BaseView {
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
                                     ),
-
                                   ],
                                 ),
                               ),
@@ -526,20 +558,53 @@ class SignUpView extends BaseView {
                               ),
                               RoundedCornerWhiteButton(
                                 onTap: () {
-                                  SignUpRequest request = SignUpRequest(
-                                      userName: _firstNameController.text,
-                                      age: _ageController.text,
-                                      weight: _weightController.text,
-                                      height: _heightController.text,
-                                      position: _positionController.text,
-                                      injuryPeriod: _injuryPeriodController
-                                          .text,
-                                      email: _emailController.text,
-                                      password: _passwordController.text,
-                                    imgUrl: ""
-                                  );
-                                  _bloc.add(GetSignUp(request: request));
-                                  // Navigator.pushNamed(context, Router.EPIC_SURE_ASSESSOR_HOME_PAGE);
+                                  if (_firstNameController.text
+                                          .trim()
+                                          .isNotEmpty &&
+                                      (_firstNameController.text.trim() !=
+                                          null) &&
+                                      _ageController.text.trim().isNotEmpty &&
+                                      (_ageController.text.trim() != null) &&
+                                      _weightController.text
+                                          .trim()
+                                          .isNotEmpty &&
+                                      (_weightController.text.trim() != null) &&
+                                      _heightController.text
+                                          .trim()
+                                          .isNotEmpty &&
+                                      (_heightController.text.trim() != null) &&
+                                      _emailController.text.trim().isNotEmpty &&
+                                      (_emailController.text.trim() != null) &&
+                                      _passwordController.text
+                                          .trim()
+                                          .isNotEmpty &&
+                                      (_passwordController.text.trim() !=
+                                          null)) {
+                                    SignUpRequest request = SignUpRequest(
+                                        userName: _firstNameController.text,
+                                        age: _ageController.text,
+                                        weight: _weightController.text,
+                                        height: _heightController.text,
+                                        position: _positionController.text,
+                                        injuryPeriod:
+                                            _injuryPeriodController.text,
+                                        email: _emailController.text,
+                                        password: _passwordController.text,
+                                        imgUrl: "");
+                                    _bloc.add(GetSignUp(request: request));
+                                  }else{
+                                    CoolAlert.show(
+                                        barrierDismissible: false,
+                                        context: context,
+                                        type: CoolAlertType.warning,
+                                        title: "Required",
+                                        text: "Please fill all required fields",
+                                        confirmBtnText: "   Retry   ",
+                                        confirmBtnColor: AppColors.orangeColor,
+                                        onConfirmBtnTap: () {
+                                          Navigator.pop(context);
+                                        });
+                                  }
                                 },
                                 text: 'SignUp',
                               ),
@@ -571,4 +636,3 @@ class SignUpView extends BaseView {
     return null;
   }
 }
-

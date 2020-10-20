@@ -109,11 +109,11 @@ class HomeView extends BaseView {
               body: Padding(
                 padding: EdgeInsets.only(
                     top: AppConstants.adaptiveScreen.setWidth(50),
-                    right: AppConstants.adaptiveScreen.setWidth(10)),
+//                    right: AppConstants.adaptiveScreen.setWidth(10),
+                ),
                 child: Container(
                   child: ListView(
                     children: [
-
                       Row(
                         children: [
                           Expanded(
@@ -155,7 +155,13 @@ class HomeView extends BaseView {
                       // SizedBox(
                       //   height: AppConstants.adaptiveScreen.setWidth(50),
                       // ),
-                      Container(child: ImageSlider(),height: AppConstants.adaptiveScreen.setHeight(400),),
+                      Row(
+                        children: [
+                          SizedBox(width: 1,),
+                          Expanded(child: Container(child: ImageSlider(),height: AppConstants.adaptiveScreen.setHeight(400),)),
+                          SizedBox(width: 1,),
+                        ],
+                      ),
                       Padding(
                         padding: EdgeInsets.only(
                           top: AppConstants.adaptiveScreen.setHeight(30),
@@ -176,7 +182,7 @@ class HomeView extends BaseView {
                             ),
                             CustomCardView(
                               onPressed: () {
-                                Navigator.pushNamed(context, Routes.LOCATIONVIEW);
+                                Navigator.pushNamed(context, Routes.LOCATION);
                               },
                               cardTitle: 'Recommended Location',
                               img: AppImages.nine,

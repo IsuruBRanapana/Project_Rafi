@@ -115,7 +115,7 @@ class _EditProfileState extends State<EditProfile> {
                           Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: CircleAvatar(
-                              backgroundImage: widget.args.imgUrl.isEmpty?AssetImage(AppImages.profile):NetworkImage(widget.args.imgUrl),
+                              backgroundImage: img.isEmpty||img=="null"?AssetImage(AppImages.profile):NetworkImage(img),
                               radius: 88,
                             ),
                           ),

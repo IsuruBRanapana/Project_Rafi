@@ -67,6 +67,10 @@ dependencies:
   #geo Locator
   geolocator: ^5.1.5
   location: ^3.0.2
+  #cool alert dialog
+  cool_alert: ^1.0.1
+  #map_launcher
+  map_launcher: ^0.12.2
 
 dev_dependencies:
   flutter_test:
