@@ -21,6 +21,7 @@ import 'package:project_rafi/features/presentation/pages/injuries/newUI/shoulder
 import 'package:project_rafi/features/presentation/pages/injuries/overuse_injury/overuse_view.dart';
 import 'package:project_rafi/features/presentation/pages/injury_type/injury_type_view.dart';
 import 'package:project_rafi/features/presentation/pages/location/location.dart';
+import 'package:project_rafi/features/presentation/pages/location/location_map.dart';
 import 'package:project_rafi/features/presentation/pages/login/login_view.dart';
 import 'package:project_rafi/features/presentation/pages/profile/edit_profile.dart';
 import 'package:project_rafi/features/presentation/pages/profile/profile_page.dart';
@@ -57,6 +58,7 @@ class Routes{
   static const String LOCATION='location';
   static const String EDIT_PROFILE='edit_profile';
   static const String PROFILE='profile_page';
+  static const String LOCATIONVIEW='location_map';
 
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name){
@@ -85,6 +87,10 @@ class Routes{
       case Routes.INJURY_TYPE:
         return MaterialPageRoute(builder: (_)=>InjuryTypeView(),
           settings: RouteSettings(name: Routes.INJURY_TYPE),
+        );
+      case Routes.LOCATIONVIEW:
+        return MaterialPageRoute(builder: (_)=>LocationView(),
+          settings: RouteSettings(name: Routes.LOCATIONVIEW),
         );
       case Routes.ACUTE_INJURY:
         return MaterialPageRoute(builder: (_)=>AcuteInjuryView(),
